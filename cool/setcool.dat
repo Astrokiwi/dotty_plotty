@@ -1,0 +1,5 @@
+    15                    ! read setcoolzred.dat for redshift grid 
+    11   -60    10        ! nh
+     5   -30    10        ! [Z]
+    33 
+ 6.00                     ! EoR redshift F5.2

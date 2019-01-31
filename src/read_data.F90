@@ -115,9 +115,10 @@ subroutine read_gcd(idump,dirname,run_name)
 	if ( sum(nb_proc)+sum(ndm_proc)/=np ) then
 		print *,"np wrong :("
 		print *,sum(nb_proc),sum(ndm_proc),np
-		print *,"forcing np=",sum(nb_proc)
-		!stop
-		np = sum(nb_proc)
+		nb = sum(nb_proc)
+		ndm = sum(ndm_proc)
+        np = nb + ndm
+	    print *,"forcing: nb,ndm,np = ",nb,ndm,np
 	endif
 	
 	np_max = max(maxval(nb_proc),maxval(ndm_proc))

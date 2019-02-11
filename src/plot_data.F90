@@ -40,7 +40,8 @@ subroutine init_plot(i_pram,intime)
 
     this_plot=>all_prams(i_pram)
 
-    write(outfile,"('pics/',A,A,I5.5,'_',I2.2,'.png')") trim(run_name),trim(this_plot%plot_name),intime,i_pram
+    write(outfile,"('pics/',A,A,I5.5,'_',I2.2,A,'.png')") trim(run_name),trim(this_plot%plot_name),intime,i_pram,trim(pid_str)
+
     if ( istop-istart >= 1 .or. nrot>1 ) then
         if ( n_pram==1 ) then
             open(unit=42,file=anim_list_file,access='append')

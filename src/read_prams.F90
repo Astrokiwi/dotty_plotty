@@ -270,11 +270,11 @@ subroutine read_stop
 end subroutine read_stop
 
 subroutine init_anim
-    use plot_prams, only: run_name,anim_list_file,istart,istop,nrot,anim_type,anim_file_base
+    use plot_prams, only: run_name,anim_list_file,istart,istop,nrot,anim_type,anim_file_base,pid_str
     !USE IFPORT ! needed on ifort
     implicit none
     character*128 :: anim_file
-    character*64 :: pid_str
+!     character*64 :: pid_str
     integer :: pid
 
     if (anim_type/=-1) then

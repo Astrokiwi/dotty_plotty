@@ -24,6 +24,9 @@
             mpeg_file = trim(anim_file_base)//trim(run_name)//".mp4"
             command="ffmpeg -y -r 24 -i "//anim_file//" -c:v mpeg4 -q:v 1 "//mpeg_file
             call system(command)
+            print *,"Tidying up and deleting ",anim_file
+            command = "rm "//anim_file
+            call system(command)
             
         else if ( anim_type==1 ) then
             anim_file = trim(anim_file_base)//trim(run_name)//".png"

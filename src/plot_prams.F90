@@ -68,6 +68,7 @@ module plot_prams
     
     character*1048,save :: montage_files
 !    character*1048 :: anim_files
+    character*64,save :: pid_str
     character*256,save :: anim_list_file ! text file giving list of filenames of animation frames
     character*256,save :: anim_file_base ! base-name of actual animation output (.gif file) (run name is appended to this)
 

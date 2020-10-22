@@ -1,6 +1,6 @@
 # UPDATE PATHS FOR YO SELF
-PGPLOT_DIR=/home/djw1g16/pgplot
-PGPLOT_LIB=-L/home/djw1g16/pgplot -lpgplot -lpng -lz
+PGPLOT_DIR=/home/djw/pgplot
+PGPLOT_LIB=-L/home/djw/pgplot -lpgplot -lpng -lz
 LIBS=-L/usr/X11R6/lib -lX11 `$(PGPLOT_DIR)/cpg/libgcc_path.sh` -lgcc -lm -lc
 
 FLAGS = -ffixed-line-length-none -O3 -mcmodel=medium

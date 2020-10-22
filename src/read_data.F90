@@ -423,16 +423,20 @@ subroutine read_gcd(idump,dirname,run_name)
         print *,"ONLY COUNTING IDs LESS THAN 500000"
     endif
 
-    ! Derived data
-    call derived_data
-
     if ( tidedisc ) then
         call tidal_init
         call tidal_update
-        r_p(1,:) = r_p(1,:) - gp_x*100. ! tides are in 100 kpc units, r_p is in kpc units
-        r_p(2,:) = r_p(2,:) - gp_y*100.
-        r_p(3,:) = r_p(3,:) - gp_z*100.
+        r_p(1,:) = r_p(1,:) - gp_x
+        r_p(2,:) = r_p(2,:) - gp_y
+        r_p(3,:) = r_p(3,:) - gp_z
+        
+        vec_data(1,1:np,1) = vec_data(1,1:np,1) - gp_vx
+        vec_data(2,1:np,1) = vec_data(2,1:np,1) - gp_vy
+        vec_data(3,1:np,1) = vec_data(3,1:np,1) - gp_vz
     endif
+
+    ! Derived data
+    call derived_data
 
     if ( do_selection ) then
 

@@ -393,7 +393,7 @@ subroutine dot_plot(i_pram)
             end do
         endif
     endif
-	
+    
 	! TODO: Move main loop (building up "pix") into different routine
 	maxmin_set = .false.
 	do ip=1,np
@@ -490,6 +490,7 @@ subroutine dot_plot(i_pram)
 
                 ! Find which colour this pixel should be
     			icol = (((dot_value)-this_plot%dbounds(1))*(ncols-2))/(this_plot%dbounds(2)-this_plot%dbounds(1))+2
+    			
     			if ( icol>ncols ) icol=ncols
 
                 if ( icol<2 .and. (this_plot%palette==4 .or. this_plot%palette==5) ) then
@@ -652,13 +653,11 @@ subroutine dot_plot(i_pram)
 
             endif ! zcut
 
-
 			if ( (dot_value)>dnmax ) dnmax = (dot_value)
 			if ( (dot_value)<dnmin ) dnmin = (dot_value)
 		endif
 
 	end do
-
 
 
 
@@ -680,7 +679,7 @@ subroutine dot_plot(i_pram)
             do iy=1,lb(2)
                 ir(1) = ix
                 ir(2) = iy
-                if ( valgrids(1,ir(1),ir(2))>0 ) then
+                if ( valgrids(1,ir(1),ir(2))/=0 ) then
                     if ( this_plot%massnorm ) then
                         dot_value = valgrids(1,ir(1),ir(2))/valgrids(2,ir(1),ir(2))
                     else
